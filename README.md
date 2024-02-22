@@ -2,11 +2,9 @@
 
 BrowserDiffusion is a chrome extension that runs stable diffusion with LCM at near real-time on page images.
 
-(Demo Video)
+[Demo Video](https://twitter.com/justoutquan/status/1760195318757654609)
 
 Built by [Justin](https://twitter.com/justoutquan) and [Michael](https://twitter.com/michaelbzhu) at [Mapo Labs](https://www.mapolabs.com/)
-
-[demo here]
 
 ## Getting Started
 
