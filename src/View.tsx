@@ -24,7 +24,6 @@ const View: FC<ViewProps> = ({ sendToFal }) => {
     withTabId(async (tabId) => {
       // get badge text
       const badgeText = await chrome.action.getBadgeText({ tabId });
-      console.log({ badgeText });
       if (badgeText === "ON") {
         setIsReplacing(true);
       }
@@ -32,7 +31,6 @@ const View: FC<ViewProps> = ({ sendToFal }) => {
 
     // setup listener for messages from contentscript
     chrome.runtime.onMessage.addListener((message: any) => {
-      console.log({ message });
       if (message.action === "processImages") {
         processImagesWithFAL(message.images);
       }

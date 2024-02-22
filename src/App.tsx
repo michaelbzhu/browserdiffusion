@@ -12,7 +12,6 @@ function App() {
   const connection = fal.realtime.connect("fal-ai/lcm", {
     onResult: (result) => {
       let newImageUrl = result.images[0].url;
-      console.log("fal responded with", { result });
       withTabId((tabId) => {
         // After receiving the new image URL, send a message to the content script to update the specific image
         chrome.tabs.sendMessage(tabId, {
@@ -23,7 +22,7 @@ function App() {
       });
     },
     onError: (error) => {
-      console.log("uh oh fal individual image gen attempt failed for img ");
+      console.error("uh oh fal individual image gen attempt failed for img ");
       console.error(error);
     },
   });

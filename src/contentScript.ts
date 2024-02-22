@@ -108,7 +108,6 @@ function updatePageImages() {
       img.src !== imagesStore[currentUrl]
     ) {
       img.src = imagesStore[currentUrl];
-      console.log("replaced " + currentUrl);
     }
   }
 
@@ -128,7 +127,6 @@ function updatePageImages() {
           source.srcset !== imagesStore[currentUrl]
         ) {
           source.srcset = imagesStore[currentUrl];
-          console.log("replaced " + currentUrl);
         }
       }
     }
@@ -171,7 +169,6 @@ chrome.runtime.onMessage.addListener((request: any) => {
     request.action === "updateSingleImage"
   ) {
     imagesStore[request.originalUrl] = request.newImageUrl;
-    console.log("replacing " + request.originalUrl);
     updatePageImages();
   } else if (request.hasOwnProperty("replaceImages")) {
     isReplacingImages = request.replaceImages;
@@ -182,5 +179,3 @@ chrome.runtime.onMessage.addListener((request: any) => {
 });
 
 observeDOM();
-
-console.log("content script loaded");
